@@ -1,0 +1,25 @@
+<%= form_for(@considered_item) do |f| %>
+  <% if @considered_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@considered_item.errors.count, "error") %> prohibited this considered_item from being saved:</h2>
+
+      <ul>
+      <% @considered_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pet_id %><br>
+    <%= f.number_field :pet_id %>
+  </div>
+  <div class="field">
+    <%= f.label :consideration_id %><br>
+    <%= f.number_field :consideration_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

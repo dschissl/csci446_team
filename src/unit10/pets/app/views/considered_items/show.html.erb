@@ -1,0 +1,16 @@
+<% if notice %>
+	<p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong>Pet:</strong>
+  <%= @considered_item.pet_id %>
+</p>
+
+<p>
+  <strong>Consideration:</strong>
+  <%= @considered_item.consideration_id %>
+</p>
+
+<%= link_to 'Edit', edit_considered_item_path(@considered_item) %> |
+<%= link_to 'Back', considered_items_path %>

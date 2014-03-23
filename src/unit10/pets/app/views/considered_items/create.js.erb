@@ -1,0 +1,5 @@
+if ($('#consideration li').length == 1) { $('#consideration').show('blind', 1000); }
+
+$('#consideration').html("<%=j render @consideration %>");
+
+$('#current_considered_item').css({'background-color':'#88ff88'}).animate({'background-color':'#A5EDF9'}, 1000);
