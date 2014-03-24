@@ -18,28 +18,14 @@
 	}
 
 	.list_image {
-		width:60px;
-		height:70px;
-	}
-
-	.list_description {
-		width:60%;
-
-		dl {
-			color:#084E5A;
-			font-weight:bold;
-			font-size:larger;
-		}
-
-		dd {
-			margin:0px;
-		}
+		width:128px;
+		height:140px;
 	}
 
 	.list_actions {
-		font-size:x-small;
 		text-align:right;
 		padding-left:1em;
+		vertical-align:middle;
 	}
 
 	.list_line_even {
@@ -48,5 +34,14 @@
 
 	.list_line_odd {
 		background:#409DAE;
+	}
+	
+	th{
+		text-align:left;
+		font-size:150%;
+	}
+	
+	td{
+		font-size:110%;
 	}
 }

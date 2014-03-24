@@ -1,18 +1,18 @@
 <h1>Pets Listing</h1>
 
 <table>
-  <!--<thead>
+  <thead>
     <tr>
+      <th>Picture</th>
       <th>Name</th>
       <th>Pet type</th>
       <th>Age</th>
       <th>Description</th>
-      <th>Image url</th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
-  </thead>-->
+  </thead>
 
   <tbody>
     <% @pets.each do |pet| %>
@@ -20,13 +20,24 @@
         <td>
           <%= image_tag(pet.image_url, class: 'list_image') %> 
         </td>
-
-        <td class="list_description"> 
-          <dl>
-            <dt><%= pet.name %> (<%= pet.pet_type %>)</dt>
-            <dd><%= truncate(strip_tags(pet.description), length: 80) %></dd>
-          </dl>
+        
+        <td>
+        	<%=pet.name %>
         </td>
+        
+        <td>
+        	<%=pet.pet_type %>
+        </td>
+        
+        <td>
+        	<%=pet.age %>
+        </td>
+        
+        <td>
+        	<%= truncate(strip_tags(pet.description), length: 80) %>
+        </td>
+        
+        
         <td class="list_actions">
           <%= link_to 'Show', pet %><br/>
           <%= link_to 'Edit', edit_pet_path(pet) %>
