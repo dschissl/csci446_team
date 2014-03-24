@@ -17,6 +17,7 @@ class FosterParentsControllerTest < ActionController::TestCase
   end
 
   test "should create foster_parent" do
+    puts "TEST: #{@foster_parent.pet_id}"
     assert_difference('FosterParent.count') do
       post :create, foster_parent: { address: @foster_parent.address, email: @foster_parent.email, name: @foster_parent.name, pet_id: @foster_parent.pet_id }
     end

@@ -37,7 +37,9 @@ class FosterParentsController < ApplicationController
   def create
     @adoption = current_adoption
     @foster_parent = FosterParent.new(foster_parent_params)
-    @foster_parent.pet_id = @adoption.line_items[0].pet_id
+    if @adoption.line_items.length > 0
+      @foster_parent.pet_id = @adoption.line_items[0].pet_id
+    end
 
     respond_to do |format|
       if @foster_parent.save

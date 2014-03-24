@@ -14,8 +14,8 @@
 
 <h2>Agreement</h2>
 <p>
-	By continuing with the adoption process, I agree to give <%= @adoption.line_items[0].pet.name %> a wonderful, loving home.
+	By continuing with the adoption process, I agree to give <%= (@adoption.line_items[0]) ? @adoption.line_items[0].pet.name : "UNDEFINED" %> a wonderful, loving home.
 </p>
 
 <%= button_to 'Cancel', @adoption, method: :delete, confirm: 'Are you sure?' %>
-<%= button_to 'Confirm', new_foster_parent_path(pet_id: @adoption.line_items[0].pet), method: :get %>
+<%= button_to 'Confirm', new_foster_parent_path(pet_id: (@adoption.line_items[0]) ? @adoption.line_items[0].pet : -1), method: :get %>
