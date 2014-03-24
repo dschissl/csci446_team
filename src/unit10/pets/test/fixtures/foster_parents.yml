@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  address: MyText
-  email: MyString
+  name: OwnerOne
+  address: OwnerOneAddress
+  email: OwnerOne@foster.org
   pet_id: 1
 
 two:
-  name: MyString
-  address: MyText
-  email: MyString
-  pet_id: 1
+  name: OwnerTwo
+  address: OwnerTwoAddress
+  email: OwnerTwo@foster.org
+  pet_id: 2
