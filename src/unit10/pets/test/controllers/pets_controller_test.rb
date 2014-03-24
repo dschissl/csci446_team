@@ -49,7 +49,7 @@ class PetsControllerTest < ActionController::TestCase
 
   test "should destroy pet" do
     assert_difference('Pet.count', -1) do
-      delete :destroy, id: @pet
+      delete :destroy, id: pets(:new)
     end
 
     assert_redirected_to pets_path
