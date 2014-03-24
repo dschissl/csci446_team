@@ -4,12 +4,10 @@
   <thead>
     <tr>
       <th>Picture</th>
-      <th>Name</th>
-      <th>Pet type</th>
-      <th>Age</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "pet_type", "Pet Type" %></th>
+      <th><%= sortable "age" %></th>
+      <th><%= sortable "description" %></th>
       <th></th>
     </tr>
   </thead>
@@ -21,23 +19,22 @@
           <%= image_tag(pet.image_url, class: 'list_image') %> 
         </td>
         
-        <td>
+        <td class="list_description">
         	<%=pet.name %>
         </td>
         
-        <td>
+        <td class="list_description">
         	<%=pet.pet_type %>
         </td>
         
-        <td>
+        <td class="list_description">
         	<%=pet.age %>
         </td>
         
-        <td>
+        <td class="list_description">
         	<%= truncate(strip_tags(pet.description), length: 80) %>
         </td>
-        
-        
+              
         <td class="list_actions">
           <%= link_to 'Show', pet %><br/>
           <%= link_to 'Edit', edit_pet_path(pet) %>

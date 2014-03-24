@@ -10,16 +10,55 @@
 	table {
 		width:100%;
 		border-collapse:collapse;
-	}
 
-	table tr td {
-		padding:5px;
-		vertical-align:top;
+		tr {
+			td {
+				font-size:110%;
+				padding:5px;
+				vertical-align:top;
+			}
+
+			th {
+				text-align:left;
+				font-size:150%;
+				color:#084E5A;
+				padding:5px;
+
+				.current {
+					padding-right:12px;
+					background-repeat:no-repeat;
+					background-position:right center;
+					color:black;
+				}
+
+				.asc {
+					background-image: url(image_path('up_arrow.gif'));
+				}
+
+				.desc {
+					background-image: url(image_path('down_arrow.gif'));
+				}
+
+				a {
+					color:#084E5A;
+				}
+
+				a:hover {
+					background-color:#F3F3F3;
+					color:black;
+				}
+			}
+		}
 	}
 
 	.list_image {
 		width:128px;
 		height:140px;
+	}
+
+	.list_description {
+		padding-top:5px;
+		color:#494949;
 	}
 
 	.list_actions {
@@ -34,14 +73,5 @@
 
 	.list_line_odd {
 		background:#409DAE;
-	}
-	
-	th{
-		text-align:left;
-		font-size:150%;
-	}
-	
-	td{
-		font-size:110%;
 	}
 }
