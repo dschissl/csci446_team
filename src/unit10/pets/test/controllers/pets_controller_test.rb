@@ -8,7 +8,8 @@ class PetsControllerTest < ActionController::TestCase
       age: 1.3,
       pet_type: 'Type',
       description: 'This is a test pet',
-      image_url: 'image.jpg'
+      image_url: 'image.jpg',
+      status: 'Avaliable'
     }
   end
 
