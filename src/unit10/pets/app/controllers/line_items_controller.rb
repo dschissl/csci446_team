@@ -26,7 +26,7 @@ class LineItemsController < ApplicationController
   def create
     @adoption = current_adoption
     @adoption.line_items.destroy_all
-    pet = Pet.find(params[:pet_id])
+    pet = Pet.find(line_item_params[:pet_id])
     @line_item = @adoption.line_items.build(pet: pet)
 
     respond_to do |format|

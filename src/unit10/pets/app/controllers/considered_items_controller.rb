@@ -25,7 +25,7 @@ class ConsideredItemsController < ApplicationController
   # POST /considered_items.json
   def create
     @consideration = current_consideration
-    pet = Pet.find(params[:pet_id])
+    pet = Pet.find(considered_item_params[:pet_id])
     @consideration.considered_items.each do |item|
       if item.pet_id == pet.id
         return
