@@ -44,6 +44,6 @@ class AdoptionsControllerTest < ActionController::TestCase
       delete :destroy, id: @adoption
     end
 
-    assert_redirected_to adoptions_path
+    assert_redirected_to animals_path
   end
 end
