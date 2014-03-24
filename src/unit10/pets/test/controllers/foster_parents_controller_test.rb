@@ -22,7 +22,7 @@ class FosterParentsControllerTest < ActionController::TestCase
       post :create, foster_parent: { address: @foster_parent.address, email: @foster_parent.email, name: @foster_parent.name, pet_id: @foster_parent.pet_id }
     end
 
-    assert_redirected_to foster_parent_path(assigns(:foster_parent))
+    assert_redirected_to animals_url
   end
 
   test "should show foster_parent" do
