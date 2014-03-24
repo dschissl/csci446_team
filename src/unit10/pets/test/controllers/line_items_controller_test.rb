@@ -21,7 +21,7 @@ class LineItemsControllerTest < ActionController::TestCase
       post :create, line_item: { adoption_id: @line_item.adoption_id, pet_id: @line_item.pet_id }
     end
 
-    assert_redirected_to line_item_path(assigns(:line_item).adoption)
+    assert_redirected_to adoption_path(assigns(:line_item).adoption)
   end
 
   test "should show line_item" do
