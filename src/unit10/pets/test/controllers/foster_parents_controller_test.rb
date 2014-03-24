@@ -11,9 +11,23 @@ class FosterParentsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:foster_parents)
   end
 
+  def current_adoption
+    Adoption.find(session[:adoption_id])
+  rescue ActiveRecord::RecordNotFound
+    adoption = Adoption.create
+    session[:adoption_id] = adoption.id
+    adoption
+  end
+
   test "should get new" do
-    get :new
-    assert_response :success
+    @adoption = current_adoption
+    if @adoption.line_items.empty?
+      get :new
+      assert_redirected_to animals_path
+    else
+      get :new
+      assert_response :success
+    end
   end
 
   test "should create foster_parent" do

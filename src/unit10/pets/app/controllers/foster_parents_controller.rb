@@ -45,15 +45,11 @@ class FosterParentsController < ApplicationController
       if @foster_parent.save
         @adoption.adoptPet
 
-        if session[:adoption_id] != nil
-          Adoption.destroy(session[:adoption_id])
-          session[:adoption_id] = nil
-        end
+        Adoption.destroy(current_adoption.id)
+        session[:adoption_id] = nil
 
-        if session[:consideration_id] != nil
-          Consideration.destroy(session[:consideration_id])
-          session[:consideration_id] = nil
-        end
+        Consideration.destroy(current_consideration.id)
+        session[:consideration_id] = nil
 
         format.html { redirect_to animals_url, notice: 'Thank you for your adoption!' }
         format.json { render action: 'show', status: :created, location: @foster_parent }

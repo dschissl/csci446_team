@@ -19,7 +19,6 @@ class PetTest < ActiveSupport::TestCase
 		
 		pet.age = -1
 		assert pet.invalid?
-		puts "errors: " + pet.errors[:age].join("; ")
 		assert_equal "must be greater than or equal to 0", pet.errors[:age].join("; ")
 
 		pet.age = 0.0
