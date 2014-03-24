@@ -17,6 +17,8 @@ class PetTest < ActiveSupport::TestCase
 	test "pet's age must be 0 or positive" do
 		pet = Pet.new(name: pets(:new).name, pet_type: pets(:new).pet_type, description: pets(:new).description, image_url: pets(:new).image_url, status: pets(:new).status)
 		
+		assert_not_nil pet
+		
 		pet.age = -1
 		assert pet.invalid?
 		assert_equal "must be greater than or equal to 0", pet.errors[:age].join("; ")
