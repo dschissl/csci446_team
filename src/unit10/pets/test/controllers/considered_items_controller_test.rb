@@ -21,7 +21,7 @@ class ConsideredItemsControllerTest < ActionController::TestCase
       post :create, considered_item: { consideration_id: @considered_item.consideration_id, pet_id: @considered_item.pet_id }
     end
 
-    assert_redirected_to animal_path
+    assert_redirected_to animals_path
   end
 
   test "should show considered_item" do
