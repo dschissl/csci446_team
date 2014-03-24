@@ -3,29 +3,34 @@ require 'test_helper'
 class PetTest < ActiveSupport::TestCase
 	fixtures :pets
 
-	test "pet attributes must not be empty" do pet = Pet.new
+	test "pet attributes must not be empty" do 
+		pet = Pet.new
 		assert pet.invalid?
 		assert pet.errors[:name].any?
 		assert pet.errors[:age].any?
 		assert pet.errors[:pet_type].any?
 		assert pet.errors[:description].any?
 		assert pet.errors[:image_url].any?
+		assert pet.errors[:status].any?
 	end
 
 	test "pet's age must be 0 or positive" do
-		pet = Pet.new(name: pets(:new).name, age: pets(:new).age, pet_type: pets(:new).pet_type, description: pets(:new).description, image_url: pets(:new).image_url)
+		pet = Pet.new(name: pets(:new).name, pet_type: pets(:new).pet_type, description: pets(:new).description, image_url: pets(:new).image_url, status: pets(:new).status)
+		
 		pet.age = -1
 		assert pet.invalid?
-		assert_equal "must be greater than or equal to 0",
-		pet.errors[:age].join('; ')
-		pet.age = 0
+		puts "errors: " + pet.errors[:age].join("; ")
+		assert_equal "must be greater than or equal to 0", pet.errors[:age].join("; ")
+
+		pet.age = 0.0
 		assert pet.valid?
+
 		pet.age = 1
 		assert pet.valid?
 	end
 
 	def new_pet(image_url) 
-		Pet.new(name: pets(:new).name, age: pets(:new).age, pet_type: pets(:new).pet_type, description: pets(:new).description, image_url: image_url)
+		Pet.new(name: pets(:new).name, age: pets(:new).age, pet_type: pets(:new).pet_type, description: pets(:new).description, image_url: image_url, status: pets(:new).status)
 	end
 
 	test "image url" do

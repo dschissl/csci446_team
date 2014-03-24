@@ -6,7 +6,7 @@ one:
   age: 1
   description: MyText
   image_url: MyString
-  status: avaliable
+  status: Avaliable
 
 two:
   name: MyString
@@ -14,7 +14,7 @@ two:
   age: 1
   description: MyText
   image_url: MyString
-  status: avaliable
+  status: Avaliable
 
 new:
   name: Sparky
@@ -22,4 +22,4 @@ new:
   age: 1
   description: A fun and loving puppy
   image_url: sparky.jpg
-  status: avaliable
+  status: Avaliable
