@@ -3,9 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  #helper_method :current_adoption, :current_consideration
+  before_action :set_current_consideration, only: [:index, :show, :edit, :update, :destroy]
 
   private
+
+    def set_current_consideration
+      @consideration = current_consideration
+    end
 
   	def current_adoption
   		Adoption.find(session[:adoption_id])

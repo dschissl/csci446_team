@@ -4,7 +4,7 @@
 
 <h1>Pets avaliable for Adoption</h1>
 <% @pets.each do |pet| %>
-	<div class="entry">
+	<div class="animal_entry">
 		<%= image_tag(pet.image_url) %> 
 		<h3><%= pet.name %></h3>
 		<h5><%= sanitize(pet.description) %></h5>

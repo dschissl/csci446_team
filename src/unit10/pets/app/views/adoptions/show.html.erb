@@ -5,7 +5,7 @@
 <h2>Your Pending Adoption</h2> 
 <div>
 	<% @adoption.line_items.each do |item| %>
-		<div class="entry">
+		<div class="adoption_entry">
 			<h5><%= item.pet.name %> (<%= item.pet.pet_type %>)</h5>
 			<%= image_tag(item.pet.image_url) %> 
 		</div>
