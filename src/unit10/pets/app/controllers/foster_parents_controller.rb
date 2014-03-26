@@ -51,7 +51,8 @@ class FosterParentsController < ApplicationController
         Consideration.destroy(current_consideration.id)
         session[:consideration_id] = nil
 
-        format.html { redirect_to animals_url, notice: 'Thank you for your adoption!' }
+        #format.hmtl used when adoption is completed
+        format.html { redirect_to animals_url, notice: 'Thank you for your adoption!' } 
         format.json { render action: 'show', status: :created, location: @foster_parent }
       else
         format.html { render action: 'new' }
@@ -84,6 +85,7 @@ class FosterParentsController < ApplicationController
     end
   end
 
+  #sets @foster_parents equal to who adopted the pet
   def who_fostered
     @foster_parents = FosterParent.all
     respond_to do |format|
