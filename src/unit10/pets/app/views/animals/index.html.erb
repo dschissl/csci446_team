@@ -9,8 +9,8 @@
 		<h3><%= pet.name %></h3>
 		<h5><%= sanitize(pet.description) %></h5>
 		<div class="action">
-			<%= button_to 'Adopt Pet', line_items_path(pet_id: pet) %>
-			<%= button_to 'Consider Pet', considered_items_path(pet_id: pet), remote: true, class: 'consider' %>
+			<%= button_to 'Adopt Pet', line_items_path(line_item: { pet_id: pet }) %>
+			<%= button_to 'Consider Pet', considered_items_path(considered_item: {pet_id: pet}), remote: true, class: 'consider' %>
 		</div>
 	</div>
 <% end %>
