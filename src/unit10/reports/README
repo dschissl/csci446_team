@@ -1,0 +1,5 @@
+#Testing if a car has wheels
+#Active Record
+	cars.wheels.empty?
+#Raw SQL
+	SELECT * FROM cars JOIN wheels USING (car_id)
