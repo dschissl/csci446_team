@@ -74,6 +74,7 @@ class PetsController < ApplicationController
       params.require(:pet).permit(:name, :pet_type, :age, :description, :image_url, :status)
     end
 
+    #following two methods used for sorting
     def sort_column
       Pet.column_names.include?(params[:sort]) ? params[:sort] : "name"
     end
