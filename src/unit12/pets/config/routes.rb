@@ -1,10 +1,13 @@
 Petadoption::Application.routes.draw do
+  get "users/new"
+  get "users/edit"
   resources :foster_parents
   resources :considerations
   resources :considered_items
   resources :line_items
   resources :adoptions
   resources :pets
+  resources :users
   get "animals/index"
 
   resources :foster_parents do
