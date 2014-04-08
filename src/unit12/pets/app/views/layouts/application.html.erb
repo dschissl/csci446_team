@@ -17,8 +17,11 @@
 
 <div id="columns">
 	<div id="side"> 
-		<div id="user_nav">  
-		 	<%= link_to "Register", new_user_path %>  
+		<div id="user_nav"> 
+			<ul> 
+			 	<li><%= link_to "Register", new_user_path %></li>
+			 	<li><%= link_to "Log in", login_path %></li>
+			 </ul>
 		</div> 
 		<div id="consideration">
 			<% if @consideration %>

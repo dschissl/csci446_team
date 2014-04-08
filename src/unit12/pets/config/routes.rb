@@ -1,6 +1,9 @@
 Petadoption::Application.routes.draw do
+  get "user_sessions/new"
   get "users/new"
   get "users/edit"
+  get "animals/index"
+
   resources :foster_parents
   resources :considerations
   resources :considered_items
@@ -8,7 +11,7 @@ Petadoption::Application.routes.draw do
   resources :adoptions
   resources :pets
   resources :users
-  get "animals/index"
+  resources :user_sessions
 
   resources :foster_parents do
     get :who_fostered
@@ -24,6 +27,9 @@ Petadoption::Application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
+  get 'login' => 'user_sessions#new'
+  get 'logout' => 'user_sessions#destroy'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
