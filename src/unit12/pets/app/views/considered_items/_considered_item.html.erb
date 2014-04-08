@@ -1,0 +1,10 @@
+
+<% if considered_item == @current_considered_item %>
+	<div id="current_considered_item" class="entry">
+<% else %>
+	<div class="entry">
+<% end %>
+	<%= image_tag(considered_item.pet.image_url) %> 
+	<h5><%= considered_item.pet.name %> (<%= considered_item.pet.pet_type %>)</h5>
+	<%= button_to 'Adopt', line_items_path(line_item: {pet_id: considered_item.pet}) %>
+</div>

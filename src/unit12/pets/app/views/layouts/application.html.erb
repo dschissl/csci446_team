@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pet Adoption</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class='<%= controller.controller_name %>'>
+
+<div id="banner">
+	<%= image_tag("logo.png") %>
+	<%= @page_title || "Pet Adoption" %>
+</div>
+
+<div id="columns">
+	<div id="side"> 
+		<div id="consideration">
+			<% if @consideration %>
+				<%= hidden_div_if(@consideration.considered_items.empty?, id: 'consideration') do %> 
+					<%= render @consideration %>
+				<% end %>
+			<% end %>
+		</div>
+
+		<ul>
+			<li><%= link_to 'Home', animals_path %></li>
+			<li><%= link_to 'Pets', pets_path %></li> 
+		</ul> 
+	</div>
+	<div id="main"> 
+		<%= yield %>
+	</div>
+</div>
+
+</body>
+
+</html>

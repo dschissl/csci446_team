@@ -1,0 +1,28 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: MyString
+  pet_type: MyString
+  age: 1
+  description: MyText
+  image_url: MyString
+  status: Avaliable
+
+two:
+  id: 2
+  name: MyString
+  pet_type: MyString
+  age: 1
+  description: MyText
+  image_url: MyString
+  status: Avaliable
+
+new:
+  id: 3
+  name: Sparky
+  pet_type: Dog
+  age: 1
+  description: A fun and loving puppy
+  image_url: sparky.jpg
+  status: Avaliable

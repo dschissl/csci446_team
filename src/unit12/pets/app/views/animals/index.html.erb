@@ -1,0 +1,16 @@
+<% if notice %>
+	<p id="notice"><%= notice %></p> 
+<% end %>
+
+<h1>Pets avaliable for Adoption</h1>
+<% @pets.each do |pet| %>
+	<div class="animal_entry">
+		<%= image_tag(pet.image_url) %> 
+		<h3><%= pet.name %></h3>
+		<h5><%= sanitize(pet.description) %></h5>
+		<div class="action">
+			<%= button_to 'Adopt Pet', line_items_path(line_item: { pet_id: pet }) %>
+			<%= button_to 'Consider Pet', considered_items_path(considered_item: {pet_id: pet}), remote: true, class: 'consider' %>
+		</div>
+	</div>
+<% end %>

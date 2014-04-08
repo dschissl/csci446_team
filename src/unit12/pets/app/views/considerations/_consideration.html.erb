@@ -1,0 +1,6 @@
+<h2 class="consideration_title">Your Pet Considerations</h2> 
+<ul class="consideration_content">
+	<%= render(consideration.considered_items) %>
+</ul>
+
+<%= button_to 'Remove Considerations', consideration, method: :delete, confirm: 'Are you sure?' %>

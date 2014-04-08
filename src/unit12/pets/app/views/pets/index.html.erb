@@ -1,0 +1,51 @@
+<h1>Pets Listing</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "pet_type", "Pet Type" %></th>
+      <th><%= sortable "age" %></th>
+      <th><%= sortable "description" %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td>
+          <%= image_tag(pet.image_url, class: 'list_image') %> 
+        </td>
+        
+        <td class="list_description">
+        	<%=pet.name %>
+        </td>
+        
+        <td class="list_description">
+        	<%=pet.pet_type %>
+        </td>
+        
+        <td class="list_description">
+        	<%=pet.age %>
+        </td>
+        
+        <td class="list_description">
+        	<%= truncate(strip_tags(pet.description), length: 80) %>
+        </td>
+              
+        <td class="list_actions">
+          <%= link_to 'Show', pet %><br/>
+          <%= link_to 'Edit', edit_pet_path(pet) %>
+          <br/> 
+          <%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pet', new_pet_path %>

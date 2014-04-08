@@ -1,0 +1,25 @@
+// Place all the styles related to the adoptions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.adoptions {
+	.adoption_entry {
+		width:250px;
+
+		img {
+			width:100%;
+		}
+
+		h5 {
+			width:100%;
+			margin-bottom:5px;
+			text-align:center;
+			font-size:120%;
+			font-weight:normal;
+		}
+	}
+
+	form, form div {
+		display:inline;
+	}
+}

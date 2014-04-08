@@ -1,0 +1,29 @@
+<h1>Listing considered_items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pet</th>
+      <th>Consideration</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @considered_items.each do |considered_item| %>
+      <tr>
+        <td><%= considered_item.pet_id %></td>
+        <td><%= considered_item.consideration_id %></td>
+        <td><%= link_to 'Show', considered_item %></td>
+        <td><%= link_to 'Edit', edit_considered_item_path(considered_item) %></td>
+        <td><%= link_to 'Destroy', considered_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Considered item', new_considered_item_path %>
