@@ -38,8 +38,6 @@
 }
 
 #columns { 
-	background: #A5EDF9;
-
 	#main {
 		margin-left: 17em; 
 		padding: 1em; 
@@ -47,6 +45,7 @@
 	}
 
 	#side {
+		background: #A5EDF9;
 		float: left; 
 		padding: 1em 2em; 
 		width: 13em; 
