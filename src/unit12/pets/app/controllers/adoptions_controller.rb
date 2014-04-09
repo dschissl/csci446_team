@@ -1,5 +1,6 @@
 class AdoptionsController < ApplicationController
   before_action :set_adoption, only: [:show, :edit, :update, :destroy]
+  before_action :check_rights, only: [:show, :index, :new, :create, :edit, :update, :destroy]
 
   # GET /adoptions
   # GET /adoptions.json
@@ -25,7 +26,14 @@ class AdoptionsController < ApplicationController
 
   # GET /adoptions/new
   def new
-    @adoption = Adoption.new
+    if current_user
+      @adoption = Adoption.new
+    else
+      respond_to do |format|
+        format.html { redirect_to new_user_session_url, notice: 'You must be logged in to adopt a pet.' }
+        format.json 
+      end
+    end
   end
 
   # GET /adoptions/1/edit
@@ -86,5 +94,14 @@ class AdoptionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def adoption_params
       params[:adoption]
+    end
+
+    def check_rights
+      if !current_user
+        respond_to do |format|
+          format.html { redirect_to new_user_session_url, notice: 'You must be logged in to adopt a pet.' }
+          format.json 
+        end
+      end
     end
 end

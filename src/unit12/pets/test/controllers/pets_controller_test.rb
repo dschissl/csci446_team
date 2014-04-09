@@ -29,7 +29,7 @@ class PetsControllerTest < ActionController::TestCase
       post :create, pet: @update
     end
 
-    assert_redirected_to pet_path(assigns(:pet))
+    assert_redirected_to pet_path
   end
 
   test "should show pet" do
@@ -44,7 +44,7 @@ class PetsControllerTest < ActionController::TestCase
 
   test "should update pet" do
     patch :update, id: @pet, pet: @update
-    assert_redirected_to pet_path(assigns(:pet))
+    assert_redirected_to pet_path
   end
 
   test "should destroy pet" do

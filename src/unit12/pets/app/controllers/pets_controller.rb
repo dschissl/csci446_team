@@ -1,5 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :check_rights, only: [:new, :create, :edit, :update, :destroy]
 
   helper_method :sort_column, :sort_direction
 
@@ -30,7 +31,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
+        format.html { redirect_to pets_url, notice: 'Pet was successfully created.' }
         format.json { render action: 'show', status: :created, location: @pet }
       else
         format.html { render action: 'new' }
@@ -44,7 +45,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
+        format.html { redirect_to pets_url, notice: 'Pet was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -81,5 +82,14 @@ class PetsController < ApplicationController
 
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
+    def check_rights
+      if !current_user || !current_user.is_admin
+        respond_to do |format|
+          format.html { redirect_to pets_url, notice: 'Only administrators can add, remove, or edit pets.'  }
+          format.json
+        end
+      end
     end
 end
