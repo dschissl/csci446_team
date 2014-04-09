@@ -1,21 +1,27 @@
+<% if !current_user %>
+	<% notice = "You must be logged in to adopt a pet" %>
+<% end %>
+
 <% if notice %>
 	<p id="notice"><%= notice %></p> 
 <% end %>
 
-<h2>Your Pending Adoption</h2> 
-<div>
-	<% @adoption.line_items.each do |item| %>
-		<div class="adoption_entry">
-			<h5><%= item.pet.name %> (<%= item.pet.pet_type %>)</h5>
-			<%= image_tag(item.pet.image_url) %> 
-		</div>
-	<% end %> 
-</div>
+<% if current_user %>
+	<h2>Your Pending Adoption</h2> 
+	<div>
+		<% @adoption.line_items.each do |item| %>
+			<div class="adoption_entry">
+				<h5><%= item.pet.name %> (<%= item.pet.pet_type %>)</h5>
+				<%= image_tag(item.pet.image_url) %> 
+			</div>
+		<% end %> 
+	</div>
 
-<h2>Agreement</h2>
-<p>
-	By continuing with the adoption process, I agree to give <%= (@adoption.line_items[0]) ? @adoption.line_items[0].pet.name : "UNDEFINED" %> a wonderful, loving home.
-</p>
+	<h2>Agreement</h2>
+	<p>
+		By continuing with the adoption process, I agree to give <%= (@adoption.line_items[0]) ? @adoption.line_items[0].pet.name : "UNDEFINED" %> a wonderful, loving home.
+	</p>
 
-<%= button_to 'Cancel', @adoption, method: :delete, confirm: 'Are you sure?' %>
-<%= button_to 'Confirm', new_foster_parent_path(pet_id: (@adoption.line_items[0]) ? @adoption.line_items[0].pet : -1), method: :get %>
+	<%= button_to 'Cancel', @adoption, method: :delete, confirm: 'Are you sure?' %>
+	<%= button_to 'Confirm', new_foster_parent_path(pet_id: (@adoption.line_items[0]) ? @adoption.line_items[0].pet : -1), method: :get %>
+<% end %>
