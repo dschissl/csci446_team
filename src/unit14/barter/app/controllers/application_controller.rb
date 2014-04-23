@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     def check_rights
       if !current_user
         respond_to do |format|
-          format.html { redirect_to new_user_session_url, notice: 'You must be logged in to adopt a pet.' }
+          format.html { redirect_to '/login', notice: 'You must be logged in to perform this action.' }
           format.json 
         end
       end

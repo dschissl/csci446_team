@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :check_login, only: [:new]
+  
   def new
     @user = User.new
   end
@@ -37,6 +39,14 @@ class UsersController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :password, :password_confirmation)
+      params.require(:user).permit(:username, :email, :password, :password_confirmation).merge(is_admin: false)
+    end
+
+    def check_login
+      if current_user_session
+        respond_to do |format|
+          format.html { redirect_to root_url, notice: 'You already have an account.' }
+        end
+      end
     end
 end
