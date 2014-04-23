@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :crypted_password  
       t.string :password_salt  
       t.string :persistence_token
-      
+      t.boolean :is_admin
       t.timestamps
     end
   end
