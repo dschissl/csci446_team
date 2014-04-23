@@ -1,8 +1,10 @@
 Barter::Application.routes.draw do
+  get "user_sessions/new"
   get "users/new"
   get "users/edit"
   resources :items
   resources :users 
+  resources :user_sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,6 +14,9 @@ Barter::Application.routes.draw do
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
+  get 'login' => 'user_sessions#new'
+  get 'logout' => 'user_sessions#destroy'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to animals_url, notice: 'Registration successful.' }
+        format.html { redirect_to root_url, notice: 'Registration successful.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
