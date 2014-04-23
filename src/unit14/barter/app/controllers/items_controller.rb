@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+  before_action :check_rights, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+
   # GET /items
   # GET /items.json
   def index

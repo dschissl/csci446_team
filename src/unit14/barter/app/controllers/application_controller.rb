@@ -14,4 +14,13 @@ class ApplicationController < ActionController::Base
     def current_user  
       @current_user = current_user_session && current_user_session.record  
     end
+
+    def check_rights
+      if !current_user
+        respond_to do |format|
+          format.html { redirect_to new_user_session_url, notice: 'You must be logged in to adopt a pet.' }
+          format.json 
+        end
+      end
+    end
 end
