@@ -1,0 +1,56 @@
+dschissl
+added account validation
+8a3502e7c8 Browse code 
+dschissl authored 11 minutes ago
+dschissl
+attached items to the user that creates them
+94280e8ef4 Browse code 
+dschissl authored 34 minutes ago
+dschissl
+created register link
+797df675d8 Browse code 
+dschissl authored 44 minutes ago
+dschissl
+users can edit profile
+ab39a516eb Browse code 
+dschissl authored an hour ago
+dschissl
+added rights to items page
+8d83b84453 Browse code 
+dschissl authored an hour ago
+dschissl
+added admin users
+7ac963727e Browse code 
+dschissl authored an hour ago
+dschissl
+coded login ability
+275cbba6dd Browse code 
+dschissl authored an hour ago
+dschissl
+added ability to create a new user
+52e3d32f35 Browse code 
+dschissl authored an hour ago
+dschissl
+added user model and controller
+18e10dc2b8 Browse code 
+dschissl authored an hour ago
+dschissl
+added authlogic to gemfile. run 'bundle install'
+2052872b57 Browse code 
+dschissl authored an hour ago
+dschissl
+fixed title symbol problem
+40a170d2ec Browse code 
+dschissl authored an hour ago
+dschissl
+created items scaffold
+7a82293825 Browse code 
+dschissl authored 2 hours ago
+dschissl
+directory clean-up
+928827affa Browse code 
+dschissl authored 3 hours ago
+dschissl
+started unit14
+346c28259e Browse code 
+dschissl authored 3 hours ago
