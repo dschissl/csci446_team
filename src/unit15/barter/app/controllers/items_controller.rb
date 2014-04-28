@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
   before_action :check_rights, only: [:show, :index, :new, :create, :edit, :update, :destroy]
 
   # GET /items
@@ -71,6 +70,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:title, :description).merge(user_id: @current_user.id)
+      params.require(:item).permit(:title, :description).merge(user_id: current_user.id)
     end
 end
