@@ -12,8 +12,17 @@
   <p id="notice"><%= notice %></p>
 <% end %>
 
-<div class='<%= controller.controller_name %>'>
-	<%= yield %>
+<div class="super">
+	<div class="header">
+		<h1> Super Barter System </h1>
+	</div>
+	<div class="sidebar">
+	
+	</div>
+
+	<div class='<%= controller.controller_name %> mainPanel'>
+		<%= yield %>
+	</div>
 </div>
 
 </body>

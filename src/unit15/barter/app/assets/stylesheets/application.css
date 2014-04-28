@@ -18,3 +18,31 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
+
+.header{
+	float:left;
+	background-color:#A1C1DA;
+	text-align:center;
+	width:90%;
+	height:64px;
+	padding:16px;
+	border:16px rgba(25,25,25,0.2) solid;
+}
+
+.mainPanel{
+	float:left;
+	width:71%;
+}
+
+.sidebar{
+	width:20%;
+	height:400px;
+	float:left;
+	background-color:rgba(30,90,62,0.4);
+	border:2px rgba(30,90,62,0.6) solid;
+}
+
+.super{
+	clear:both;
+}
+
