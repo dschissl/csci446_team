@@ -1,4 +1,8 @@
 Barter::Application.routes.draw do
+  resources :line_items
+
+  resources :offers
+
   get "user_sessions/new"
   get "users/new"
   get "users/edit"
