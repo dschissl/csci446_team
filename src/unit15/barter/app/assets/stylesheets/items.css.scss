@@ -3,18 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .items{
-	//margins
-	margin-left:25%;
-	margin-right:25%;
 	//padding
 	padding:16px;
 	
 	//coloring and border
-	background-color:rgb(180,180,250);
-	border:2px rgba(25,25,52,0.1) solid;
+	background-color:#A1C1DA;
+	border:2px #1B4657 solid;
 	
 	//text
-	color:#335;
+	color:#1B4657;
 	
 	//labels
 	label{
@@ -23,10 +20,10 @@
 	
 	//table
 	table{
-		background-color:rgb(240,240,255);
+		background-color:rgba(240,240,240,0.9);
 		border:2px black ridge;
 		td,th{
-			border:1px black dashed;
+			border:1px black solid;
 			padding:8px;
 		}
 		th{
@@ -54,9 +51,9 @@
 	//headers
 	h1{
 		width:256px;
-		border:8px rgba(25,25,52,0.3) solid;
+		border:8px rgba(25,25,25,0.2) solid;
 		padding:16px;
 		text-align:center;
-		background-color:rgba(25,25,52,0.2)
+		background-color:rgba(25,25,25,0.1)
 	}
 }

@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 20140428213412) do
 
   create_table "offers", force: true do |t|
     t.text     "message"
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
