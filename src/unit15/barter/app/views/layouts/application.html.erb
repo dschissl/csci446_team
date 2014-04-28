@@ -8,20 +8,27 @@
 </head>
 <body>
 
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
-
 <div class="super">
 	<div class="header">
 		<h1> Super Barter System </h1>
 	</div>
 	<div class="sidebar">
 		<%= link_to 'View Items', '/items' %>
-		<%= link_to 'Logout', '/logout' %>
+		<br>
+		<br>
+		<% if UserSession.current_user %>
+			<%= link_to 'Logout', '/logout' %>
+		<% else %>
+			<%= link_to 'Register', '/register' %>
+			<%= link_to 'Login', '/logout' %>
+		<% end %>
 	</div>
 
 	<div class='<%= controller.controller_name %> mainPanel'>
+		<% if notice %>
+  		<p id="notice"><%= notice %></p>
+		<% end %>
+	
 		<%= yield %>
 	</div>
 </div>
