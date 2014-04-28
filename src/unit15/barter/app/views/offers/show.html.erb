@@ -1,6 +1,16 @@
 <p>
+  <strong>Item:</strong>
+  <%= @item.title %>
+</p>
+
+<p>
   <strong>Message:</strong>
   <%= @offer.message %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @offer.status %>
 </p>
 
 <%= link_to 'Edit', edit_offer_path(@offer) %> |

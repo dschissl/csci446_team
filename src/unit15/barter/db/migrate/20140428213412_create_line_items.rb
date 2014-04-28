@@ -3,7 +3,6 @@ class CreateLineItems < ActiveRecord::Migration
     create_table :line_items do |t|
       t.integer :item_id
       t.integer :offer_id
-
       t.timestamps
     end
   end

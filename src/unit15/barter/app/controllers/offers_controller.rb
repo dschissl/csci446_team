@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
-before_action :check_rights, only: [:show, :index, :new, :create, :edit, :update, :destroy]
-  before_action :check_item, only: [:new]
+  before_action :check_rights, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+  before_action :check_and_set_item, only: [:new]
 
   # GET /offers
   # GET /offers.json
@@ -12,6 +12,7 @@ before_action :check_rights, only: [:show, :index, :new, :create, :edit, :update
   # GET /offers/1
   # GET /offers/1.json
   def show
+    @item = Item.find(@offer.item_id)
   end
 
   # GET /offers/new
@@ -76,10 +77,10 @@ before_action :check_rights, only: [:show, :index, :new, :create, :edit, :update
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params.require(:offer).permit(:message, :item_id).merge(user_id: current_user.id)
+      params.require(:offer).permit(:message, :item_id).merge(user_id: current_user.id).merge(status: "Pending")
     end
 
-    def check_item
+    def check_and_set_item
       begin
         set_item
       rescue
