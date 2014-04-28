@@ -11,7 +11,10 @@
 <% if notice %>
   <p id="notice"><%= notice %></p>
 <% end %>
-<%= yield %>
+
+<div class='<%= controller.controller_name %>'>
+	<%= yield %>
+</div>
 
 </body>
 </html>
