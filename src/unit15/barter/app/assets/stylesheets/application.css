@@ -31,15 +31,26 @@ body {
 
 .mainPanel{
 	float:left;
-	width:71%;
+	width:75%;
 }
 
 .sidebar{
-	width:20%;
+	width:15%;
 	height:400px;
 	float:left;
-	background-color:rgba(30,90,62,0.4);
+	background-color:rgba(30,90,62,0.8);
+	border:16px rgba(30,90,62,0.6) solid;
+	padding-top:16px;
+	text-align:center;
+}
+.sidebar a{
+	font-size:150%;
+	color:white;
+	text-decoration:none;
 	border:2px rgba(30,90,62,0.6) solid;
+	padding:4px;
+	margin-bottom:2px;
+	display:block;
 }
 
 .super{
