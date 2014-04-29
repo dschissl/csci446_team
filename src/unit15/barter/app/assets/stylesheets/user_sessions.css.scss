@@ -1,62 +1,7 @@
 // Place all the styles related to the UserSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 .user_sessions{
-	//padding
-	padding:16px;
 	
-	//coloring and border
-	background-color:#A1C1DA;
-	border:2px #1B4657 solid;
-	
-	//text
-	color:#1B4657;
-	
-	//labels
-	label{
-		font-size:110%;
-	}
-	
-	//table
-	table{
-		background-color:rgba(240,240,240,0.9);
-		border:2px black ridge;
-		td,th{
-			border:1px black dashed;
-			padding:8px;
-		}
-		th{
-			font-size:110%;
-		}
-	}
-	
-	//forms
-	input,textarea{
-		border: 1px rgba(25,25,52,0.5) solid;
-		border-radius:4px;
-		margin-top:4px;
-		margin-bottom:8px;
-		margin-left:32px;
-	}
-	input{
-		height:32px;
-		width:300px;
-		padding:2px;
-	}
-	textarea{
-		padding:4px;
-		width:300px;
-		height:150px;
-	}
-	//headers
-	h1{
-		width:256px;
-		border:8px rgba(25,25,25,0.2) solid;
-		padding:16px;
-		text-align:center;
-		background-color:rgba(25,25,25,0.1)
-	}
 }
