@@ -13,6 +13,10 @@ class Item < ActiveRecord::Base
   scope :mine, -> { where user_id: UserSession.current_user.id }
   scope :taken, -> { where status: "Taken" }
 
+  def belongs_to_me?
+		user.id = UserSession.current_user
+	end
+
 	private
 		def ensure_not_referenced_by_any_line_item
 			if line_items.empty?

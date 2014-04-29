@@ -1,4 +1,8 @@
 <p>
+	<%= image_tag(@item.image.to_s, class: 'list_image') %> 
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @item.title %>
 </p>
@@ -13,7 +17,8 @@
   <%= @item.status %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
-<br />
-<%= link_to 'Make Offer', new_offer_path(:item_id => @item.id) %>
+<% if @item.belongs_to_me? %>
+	<%= link_to 'Edit', edit_item_path(@item) %>
+<% else %>
+	<%= link_to 'Make Offer', new_offer_path(:item_id => @item.id) %>
+<% end %>

@@ -3,23 +3,18 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Description</th>
       <th>Photo</th>
-      <th></th>
-      <th></th>
+      <th>Title</th>
+      <th>Description</th> 
     </tr>
   </thead>
 
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.title %></td>
-        <td><%= item.description %></td>
-        <td><%= image_tag item.image_url.to_s %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= image_tag item.image.to_s %></td>
+        <td><%= link_to item.title, item %></td>
+        <td><%= item.description %></td>  
       </tr>
     <% end %>
   </tbody>
