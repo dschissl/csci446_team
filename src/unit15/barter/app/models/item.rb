@@ -1,5 +1,6 @@
 class Item < ActiveRecord::Base
 	belongs_to :user
+	mount_uploader :image, ImageUploader
 
 	has_many :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item

@@ -56,4 +56,6 @@ gem 'scrypt'
 
 gem 'rails_12factor', group: :production
 
+gem "carrierwave"
+
 ruby "1.9.3"
