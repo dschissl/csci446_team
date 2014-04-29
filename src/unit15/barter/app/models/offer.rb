@@ -2,6 +2,7 @@ class Offer < ActiveRecord::Base
 	STATUSES = ["Pending", "Accepted", "Declined"]
 
 	belongs_to :user
+	belongs_to :item
 	
 	has_many :line_items, dependent: :destroy
 

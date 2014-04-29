@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+ 
+body {
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.header{
+	float:left;
+	background-color:#A1C1DA;
+	text-align:center;
+	width:90%;
+	height:64px;
+	padding:16px;
+	border:16px rgba(25,25,25,0.2) solid;
+}
+
+.sidebar{
+	width:15%;
+	min-height:400px;
+	float:left;
+	background-color:rgba(30,90,62,0.8);
+	border:16px rgba(30,90,62,0.6) solid;
+	padding-top:16px;
+	text-align:center;
+
+	a {
+		font-size:150%;
+		color:white;
+		text-decoration:none;
+		border:2px rgba(30,90,62,0.6) solid;
+		padding:4px;
+		margin-bottom:2px;
+		display:block;
+	}
+}
+
+.super{
+	clear:both;
+}
+
+.mainPanel{
+	float:left;
+	width:75%;
+	padding:16px;
+
+	//coloring and border
+	background-color:#A1C1DA;
+	border:2px #1B4657 solid;
+	
+	//text
+	color:#1B4657;
+	
+	//labels
+	label{
+		font-size:110%;
+	}
+
+	//forms
+	input,textarea{
+		border: 1px rgba(25,25,52,0.5) solid;
+		border-radius:4px;
+		margin-top:4px;
+		margin-bottom:8px;
+	}
+	input{
+		height:32px;
+		width:300px;
+		padding:2px;
+	}
+	textarea{
+		padding:4px;
+		width:300px;
+		height:150px;
+	}
+	//headers
+	h1{
+		width:100%;
+		border:2px rgba(25,25,25,0.2) solid;
+		padding:16px 0px;
+		text-align:center;
+		background-color:rgba(25,25,25,0.1)
+	}
+}
+
+.mainPanel.index {
+	//table
+	table{
+		border:2px rgba(25,25,25,0.2) ridge;
+		width:100%;
+		td,th{
+			border:none;
+			padding:8px;
+		}
+		th{
+			font-size:110%;
+		}
+		tr {
+			background-color:rgba(240,240,240,0.5);
+		}
+		img {
+			height:100px;
+			width:100px;
+		}
+	}
+}
+
+.mainPanel.show {
+	img {
+		height:200px;
+		width:200px;
+	}
+}
+
+

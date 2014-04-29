@@ -1,27 +1,49 @@
-<h1>Listing offers</h1>
+<h1>Recieved</h1>
 
 <table>
   <thead>
     <tr>
+      <th>For</th>
+      <th>From User</th>
       <th>Message</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Offer Status</th>
     </tr>
   </thead>
 
   <tbody>
     <% @offers.each do |offer| %>
       <tr>
-        <td><%= offer.message %></td>
-        <td><%= link_to 'Show', offer %></td>
-        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to offer.item.description, offer %></td>
+        <td><%= link_to offer.user.username, offer %></td>
+        <td><%= link_to offer.message, offer %></td>
+        <td><%= link_to offer.status, offer %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<h1>Sent</h1>
 
-<%= link_to 'New Offer', new_offer_path %>
+<table>
+  <thead>
+    <tr>
+      <th>For</th>
+      <th>From User</th>
+      <th>Message</th>
+      <th>Offer Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= link_to offer.item.description, offer %></td>
+        <td><%= link_to offer.user.username, offer %></td>
+        <td><%= link_to offer.message, offer %></td>
+        <td><%= link_to offer.status, offer %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
