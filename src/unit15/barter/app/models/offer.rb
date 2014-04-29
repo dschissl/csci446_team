@@ -9,6 +9,6 @@ class Offer < ActiveRecord::Base
 	validates :status, inclusion: STATUSES
 
 	default_scope { where user_id: UserSession.current_user.id }
-  scope :accepted, -> { where state: "Accepted" }
-  scope :declined, -> { where state: "Declined" }
+  scope :accepted, -> { where status: "Accepted" }
+  scope :declined, -> { where status: "Declined" }
 end
