@@ -4,6 +4,7 @@ class UserSession < Authlogic::Session::Base
   end
   
   def self.current_user  
-    UserSession.current_user_session && UserSession.current_user_session.record  
+    return UserSession.current_user_session.record if UserSession.current_user_session
+    return nil
   end
 end

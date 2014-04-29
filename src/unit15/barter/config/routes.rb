@@ -23,6 +23,10 @@ Barter::Application.routes.draw do
   get 'logout' => 'user_sessions#destroy'
   get 'register' => 'users#new'
 
+  get 'offers/:id/accept' => 'offers#accept', :as => :accept
+  get 'offers/:id/decline' => 'offers#decline', :as => :decline
+
+
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

@@ -3,20 +3,20 @@
 <table>
   <thead>
     <tr>
-      <th>For</th>
-      <th>From User</th>
-      <th>Message</th>
+      <th>Main Item</th>
       <th>Offer Status</th>
+      <th>From User</th>
+      <th>Message</th>     
     </tr>
   </thead>
 
   <tbody>
-    <% @offers.each do |offer| %>
+    <% Offer.recieved.each do |offer| %>
       <tr>
-        <td><%= link_to offer.item.description, offer %></td>
-        <td><%= link_to offer.user.username, offer %></td>
-        <td><%= link_to offer.message, offer %></td>
+        <td><%= link_to offer.item.description, offer.item %></td>
         <td><%= link_to offer.status, offer %></td>
+        <td><%= offer.user.username %></td>
+        <td><%= offer.message %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,20 +27,20 @@
 <table>
   <thead>
     <tr>
-      <th>For</th>
-      <th>From User</th>
-      <th>Message</th>
+      <th>Main Item</th>
       <th>Offer Status</th>
+      <th>To User</th>
+      <th>Message</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @offers.each do |offer| %>
+    <% Offer.sent.each do |offer| %>
       <tr>
-        <td><%= link_to offer.item.description, offer %></td>
-        <td><%= link_to offer.user.username, offer %></td>
-        <td><%= link_to offer.message, offer %></td>
+        <td><%= link_to offer.item.description, offer.item %></td>
         <td><%= link_to offer.status, offer %></td>
+        <td><%= offer.user.username %></td>
+        <td><%= offer.message %></td>
       </tr>
     <% end %>
   </tbody>

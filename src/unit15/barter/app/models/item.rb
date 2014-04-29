@@ -14,7 +14,7 @@ class Item < ActiveRecord::Base
   scope :taken, -> { where status: "Taken" }
 
   def belongs_to_me?
-		user.id = UserSession.current_user
+		user.id == UserSession.current_user.id
 	end
 
 	private

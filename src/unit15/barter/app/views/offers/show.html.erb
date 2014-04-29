@@ -13,4 +13,11 @@
   <%= @offer.status %>
 </p>
 
-<%= link_to 'Edit', edit_offer_path(@offer) %>
+<% if @offer.belongs_to_me? %>
+	<%= link_to 'Destroy', @offer, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+	<% if @offer.status == "Pending" %>
+		<%= link_to 'Accept', accept_path(@offer.id) %>
+		<%= link_to 'Decline', decline_path(@offer.id) %>
+	<% end %>
+<% end %>

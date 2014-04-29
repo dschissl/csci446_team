@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action :set_offer, only: [:show, :edit, :update, :destroy, :accept, :decline]
   before_action :check_rights, only: [:show, :index, :new, :create, :edit, :update, :destroy]
   before_action :check_and_set_item, only: [:new]
 
@@ -22,6 +22,35 @@ class OffersController < ApplicationController
 
   # GET /offers/1/edit
   def edit
+  end
+
+  def accept
+    @offer.status = "Accepted"
+    @offer.item.status = "Taken"
+
+    respond_to do |format|
+      if @offer.save and @offer.item.save
+        format.html { redirect_to offers_url, notice: 'Offer was successfully accepted.' }
+        format.json { render action: 'show', status: :created, location: @offer }
+      else
+        format.html { redirect_to offers_url, notice: 'An error occured.' }
+        format.json { render json: @offer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def decline
+    @offer.status = "Declined"
+
+    respond_to do |format|
+      if @offer.save
+        format.html { redirect_to offers_url, notice: 'Offer was successfully declined.' }
+        format.json { render action: 'show', status: :created, location: @offer }
+      else
+        format.html { redirect_to offers_url, notice: 'An error occured.' }
+        format.json { render json: @offer.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /offers
