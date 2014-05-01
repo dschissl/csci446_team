@@ -58,6 +58,14 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @item = Item.find(@offer.item_id)
+    params[:offer][:line_item_ids].each do |item|
+      line_item = LineItem.new(:item_id => item, :offer_id => @offer.id)
+      if line_item.valid?
+       line_item.save
+      else
+       @errors += line_item.errors
+      end
+    end
 
     respond_to do |format|
       if @offer.save

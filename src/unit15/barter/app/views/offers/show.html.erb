@@ -1,3 +1,8 @@
+<h2>Get Item</h2>
+<p>
+  <%= image_tag(@item.image.to_s, class: 'list_image') %> 
+</p>
+
 <p>
   <strong>Item:</strong>
   <%= @item.title %>
@@ -13,11 +18,11 @@
   <%= @offer.status %>
 </p>
 
-<% if @offer.belongs_to_me? %>
-	<%= link_to 'Destroy', @offer, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% else %>
-	<% if @offer.status == "Pending" %>
+<% if @offer.status == "Pending" %>
+  <% if @offer.belongs_to_me? %>
+    <%= link_to 'Destroy', @offer, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% else %>
 		<%= link_to 'Accept', accept_path(@offer.id) %>
 		<%= link_to 'Decline', decline_path(@offer.id) %>
-	<% end %>
+  <% end %>
 <% end %>

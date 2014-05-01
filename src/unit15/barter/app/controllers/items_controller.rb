@@ -7,11 +7,14 @@ class ItemsController < ApplicationController
   def index
     if not params[:type]
       @items = Item.avaliable
+      @type = "Avaliable"
     else
       if params[:type] == "traded" 
         @items = Item.taken
+        @type = "Traded"
       else
         @items = Item.mine
+        @type = "My"
       end
     end
   end
