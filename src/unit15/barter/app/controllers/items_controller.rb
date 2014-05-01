@@ -5,7 +5,15 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    if not params[:type]
+      @items = Item.avaliable
+    else
+      if params[:type] == "traded" 
+        @items = Item.taken
+      else
+        @items = Item.mine
+      end
+    end
   end
 
   # GET /items/1

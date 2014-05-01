@@ -13,17 +13,17 @@
 		<h1> Super Barter System </h1>
 	</div>
 	<div class="sidebar">
-		<%= link_to 'Avaliable Items', '/items' %>
-		<%= link_to 'Traded Items', '/items' %>
+		<%= link_to 'Avaliable Items', items_url %>
+		<%= link_to 'Traded Items', items_url(type: "traded") %>
 		<br>
 		<br>
 		<% if UserSession.current_user %>
-			<%= link_to 'My Items', '/items' %>
+			<%= link_to 'My Items', items_url(type: "mine") %>
 			<%= link_to 'My Offers', offers_url %>
-			<%= link_to 'Logout', '/logout' %>
+			<%= link_to 'Logout', logout_url %>
 		<% else %>
-			<%= link_to 'Register', '/register' %>
-			<%= link_to 'Login', '/login' %>
+			<%= link_to 'Register', register_url %>
+			<%= link_to 'Login', login_url %>
 		<% end %>
 	</div>
 
