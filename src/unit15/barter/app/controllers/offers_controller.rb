@@ -26,7 +26,18 @@ class OffersController < ApplicationController
 
   def accept
     @offer.status = "Accepted"
+    main_user =  @offer.item.user_id
+    @offer.item.user_id = @offer.user_id
     @offer.item.status = "Taken"
+    @offer.items.each do |item|
+      item.status = "Taken"
+      item.user_id = main_user
+      if item.valid?
+        item.save
+      else
+        @errors += item.errors
+      end
+    end
 
     respond_to do |format|
       if @offer.save and @offer.item.save
@@ -58,17 +69,19 @@ class OffersController < ApplicationController
   def create
     @offer = Offer.new(offer_params)
     @item = Item.find(@offer.item_id)
-    params[:offer][:line_item_ids].each do |item|
-      line_item = LineItem.new(:item_id => item, :offer_id => @offer.id)
-      if line_item.valid?
-       line_item.save
-      else
-       @errors += line_item.errors
-      end
-    end
+    @offer.to_user_id = @item.user_id
 
     respond_to do |format|
       if @offer.save
+        params[:offer][:line_item_ids].each do |item|
+          line_item = LineItem.new(:item_id => item, :offer_id => @offer.id)
+          if line_item.valid?
+            line_item.save
+          else
+            @errors += line_item.errors
+          end
+        end
+
         format.html { redirect_to offers_url, notice: 'Offer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @offer }
       else
@@ -95,10 +108,11 @@ class OffersController < ApplicationController
   # DELETE /offers/1
   # DELETE /offers/1.json
   def destroy
-    @offer.destroy
-    respond_to do |format|
-      format.html { redirect_to offers_url }
-      format.json { head :no_content }
+    if @offer.destroy
+      respond_to do |format|
+        format.html { redirect_to offers_url }
+        format.json { head :no_content }
+      end
     end
   end
 

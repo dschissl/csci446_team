@@ -1,13 +1,4 @@
-<h2>Get Item</h2>
-<p>
-  <%= image_tag(@item.image.to_s, class: 'list_image') %> 
-</p>
-
-<p>
-  <strong>Item:</strong>
-  <%= @item.title %>
-</p>
-
+<h2><%= @offer.status %> Offer</h2>
 <p>
   <strong>Message:</strong>
   <%= @offer.message %>
@@ -25,4 +16,29 @@
 		<%= link_to 'Accept', accept_path(@offer.id) %>
 		<%= link_to 'Decline', decline_path(@offer.id) %>
   <% end %>
+<% end %>
+
+<br />
+<h2>Main Item</h2>
+
+<p>
+  <%= image_tag(@item.image.to_s, class: 'list_image') %> 
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= link_to @item.title, @item %>
+</p>
+
+<br />
+<h2>Trade Items</h2>
+<% @offer.items.each do |item| %>
+ <p>
+    <%= image_tag(item.image.to_s, class: 'list_image') %> 
+  </p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= link_to item.title, item %>
+  </p>
 <% end %>

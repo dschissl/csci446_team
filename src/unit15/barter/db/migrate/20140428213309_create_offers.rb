@@ -4,6 +4,7 @@ class CreateOffers < ActiveRecord::Migration
       t.text :message
       t.integer :item_id
       t.integer :user_id
+      t.integer :to_user_id
       t.string :status
       t.timestamps
     end

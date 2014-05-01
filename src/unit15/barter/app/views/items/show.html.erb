@@ -19,6 +19,7 @@
 
 <% if @item.belongs_to_me? %>
 	<%= link_to 'Edit', edit_item_path(@item) %>
+  <%= link_to 'Destroy', @item, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% else %>
 	<% if @item.status == "Avaliable" %>
 		<%= link_to 'Make Offer', new_offer_path(:item_id => @item.id) %>

@@ -15,11 +15,13 @@
 	<div class="sidebar">
 		<%= link_to 'Avaliable Items', items_url %>
 		<%= link_to 'Traded Items', items_url(type: "traded") %>
-		<br>
-		<br>
+		<br />
+		<br />
 		<% if UserSession.current_user %>
+			<span>Signed in as <%= UserSession.current_user.username %></span>
 			<%= link_to 'My Items', items_url(type: "mine") %>
 			<%= link_to 'My Offers', offers_url %>
+			<br />
 			<%= link_to 'Logout', logout_url %>
 		<% else %>
 			<%= link_to 'Register', register_url %>

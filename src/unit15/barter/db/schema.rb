@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140429045218) do
     t.text     "message"
     t.integer  "item_id"
     t.integer  "user_id"
+    t.integer  "to_user_id"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"

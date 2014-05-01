@@ -13,7 +13,7 @@
   <tbody>
     <% Offer.recieved.each do |offer| %>
       <tr>
-        <td><%= link_to offer.item.description, offer.item %></td>
+        <td><%= link_to offer.item.title, offer.item %></td>
         <td><%= link_to offer.status, offer %></td>
         <td><%= offer.user.username %></td>
         <td><%= offer.message %></td>
@@ -37,7 +37,7 @@
   <tbody>
     <% Offer.sent.each do |offer| %>
       <tr>
-        <td><%= link_to offer.item.description, offer.item %></td>
+        <td><%= link_to offer.item.title, offer.item %></td>
         <td><%= link_to offer.status, offer %></td>
         <td><%= offer.item.user.username %></td>
         <td><%= offer.message %></td>
