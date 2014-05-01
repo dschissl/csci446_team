@@ -9,8 +9,8 @@ class Item < ActiveRecord::Base
 
 	validates :status, inclusion: STATUSES
 
-	default_scope { where status: "Avaliable" }
   scope :mine, -> { where user_id: UserSession.current_user.id }
+  scope :avaliable, -> { where status: "Avaliable" }
   scope :taken, -> { where status: "Taken" }
 
   def belongs_to_me?

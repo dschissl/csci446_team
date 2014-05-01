@@ -39,7 +39,7 @@
       <tr>
         <td><%= link_to offer.item.description, offer.item %></td>
         <td><%= link_to offer.status, offer %></td>
-        <td><%= offer.user.username %></td>
+        <td><%= offer.item.user.username %></td>
         <td><%= offer.message %></td>
       </tr>
     <% end %>

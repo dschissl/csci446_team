@@ -1,6 +1,6 @@
 class UserSession < Authlogic::Session::Base
 	def self.current_user_session 
-    UserSession.find  
+    UserSession.find
   end
   
   def self.current_user  
